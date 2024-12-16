@@ -11,7 +11,7 @@ export default function Header() {
     return (
         <div>
             {/* Header 1 */}
-            <div className="w-full h-[25px] md:h-[30px] lg:h-[45px] lg:gap-[180px] flex justify-around bg-color items-center text-color2">
+            <div className="w-full h-[25px]  md:h-[30px] lg:h-[45px] lg:gap-[180px] flex justify-around bg-color items-center text-color2">
                 <div className="flex justify-center items-center lg:gap-[8px] gap-[3px] md:gap-[5px]">
                     <div><svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M13.3334 4.5L6.00008 11.8333L2.66675 8.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -19,6 +19,7 @@ export default function Header() {
                     </div>
                     <p className="lg:text-[13px] text-[8px] md:text-[10px]">Free shipping on all orders over $50</p>
                 </div>
+
 
                 <div className="flex lg:gap-[24px] gap-[6px] md:gap-[25px] lg:text-[13px] text-[8px] md:text-[10px] justify-center items-center">
                     <div>
@@ -31,7 +32,7 @@ export default function Header() {
                             <option value="ur">Urdu</option>
                         </select>
                     </div>
-                    <p>Faqs</p>
+                    <p><Link href={"/faq"}>Faqs</Link></p>
                     <div className="flex justify-center items-center lg:gap-[6px] gap-[2px] md:gap-[4px]">
                         <div><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g opacity="0.7" clip-path="url(#clip0_1_883)">
@@ -46,7 +47,7 @@ export default function Header() {
                             </defs>
                         </svg>
                         </div>
-                        <p>Need Help</p>
+                        <p><Link href={"/contact"}>Need Help</Link></p>
                     </div>
                 </div>
             </div>
@@ -88,11 +89,17 @@ export default function Header() {
 </svg>
                         </div> : 
                         <div className="relative">
-                            <ul className="flex flex-col justify-center items-center text-[14px] bg-color gap-[5px] text-color2 h-[150px] w-[90px] absolute -top-3 md:-top-5">
+                            <ul className="flex flex-col justify-center items-center text-[12px] md:text-[14px] bg-color gap-[5px] text-color2 md:h-[170px] h-[150px] w-[90px] md:w-[110px] absolute -top-3 md:-top-5 z-20">
+                                <div className="pr-12 pt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18" />
+      <line x1="6" y1="6" x2="18" y2="18" />
+    </svg>
+                                </div>
                         <li><Link href={"/"}>Home</Link></li>
                         <li><Link href={"/"}>Shop</Link></li>
-                        <li><Link href={"/"}>Product</Link></li>
-                        <li><Link href={"/productpage"}>Pages</Link></li>
+                        <li><Link href={"/productpage"}>Product</Link></li>
+                        <li><Link href={"/"}>Pages</Link></li>
                         <li><Link href={"/about"}>About</Link></li>
                     </ul>
                     </div>}
@@ -100,17 +107,50 @@ export default function Header() {
                     <ul className="lg:gap-[32px] lg:flex justify-center items-center lg:text-[14px] hidden">
                         <li><Link href={"/"}>Home</Link></li>
                         <li><Link href={""}>Shop</Link></li>
-                        <li><Link href={"/"}>Product</Link></li>
-                        <li><Link href={"/productpage"}>Pages</Link></li>
+                        <li><Link href={"/productpage"}>Product</Link></li>
+                        <li><Link href={"/"}>Pages</Link></li>
                         <li><Link href={"/about"}>About</Link></li>
                     </ul>
                 </div>
-                <div className="flex justify-center items-center md:text-[14px] text-[12px] lg:gap-[8px] gap-[6px]">
+               <Link href={"/contact"}>
+               <div className="flex justify-center items-center md:text-[14px] text-[12px] lg:gap-[8px] gap-[6px]">
                     <p className="text-color4">Contact:</p>
                     <p className="text-color">(808) 555-0111</p>
                 </div>
+                </Link>
 
             </div>
         </div>
     )
 }
+
+
+
+// "use client"
+
+// import { useContext } from "react"
+// import { loginContext } from "../context/context"
+
+// export default function Header() {
+//     const data = useContext(loginContext)
+//     if(!data) {
+//         return("something went wrong")
+//     }
+
+//     const handleUpdate = () => {
+//         if(data.update) {
+//             data.update({islogin:false});
+//         }
+//     }
+//     console.log(data);
+    
+ 
+ 
+//     return(
+//         <div>
+//             {data?.islogin && (<><p>logges in</p></>)}
+//             {!data.islogin && (<><p>logges false</p></>)}
+//             <button onClick={handleUpdate}>update value</button>
+//         </div>
+//     )
+// }

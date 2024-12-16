@@ -7,13 +7,13 @@ import image3 from "/public/Frame (1).png"
 export default function Cart() {
     return(
         <div>
-            <div className="lg:h-[633px] lg:w-[1609px] flex lg:flex-row flex-col justify-center gap-[50px] lg:gap-0 items-center ">
+            <div className="lg:h-[633px] xl:w-[1430px] lg:w-[1000px] md:w-[750px] flex lg:flex-row flex-col justify-center gap-[50px] lg:gap-0 items-center  lg:px-10 xl:p-0 pb-10">
 
-            <div className="lg:h-[547px] lg:w-[1100px] flex flex-col lg:gap-[40px] gap-[22px] md:gap-[35px]">
+            <div className="lg:h-[547px]  lg:w-[900px] flex flex-col lg:gap-[40px] gap-[22px] md:gap-[35px] ">
 
 <h1 className="lg:text-[22px] text-[18px] md:text-[20px] font-semibold ">Bag</h1>
 
-<div className="lg:h-[211px]  lg:w-[963px] w-[300px] h-[120px]  flex items-start justify-between border-b-[0.3px] border-color10  lg:pr-20">
+<div className="lg:h-[211px] lg:w-[500px] xl:w-[800px] w-[300px] h-[120px]  flex items-start justify-between border-b-[0.3px] border-color10  lg:pr-20">
     <div className="flex lg:gap-[35px] gap-[12px] md:gap-[22px]">
         <div><Image className="h-[90px] w-[90px]" src={image} width={150} height={150} alt="product image"></Image></div>
         <div className="flex flex-col lg:gap-[20px] gap-[8px] md:gap-[16px] text-color12">
@@ -34,7 +34,7 @@ export default function Cart() {
     <div className="text-[12px] lg:text-[15px]">MRP: $99</div>
 </div>
 
-<div className="lg:h-[211px]  lg:w-[963px] w-[300px] h-[120px]  flex items-start justify-between border-b-[0.3px] border-color10  lg:pr-20">
+<div className="lg:h-[211px]  lg:w-[500px] xl:w-[800px] w-[300px] h-[120px]  flex items-start justify-between border-b-[0.3px] border-color10  lg:pr-20">
 <div className="flex lg:gap-[35px] gap-[12px] md:gap-[22px]">
 <div><Image className="h-[90px] w-[90px]" src={image1} width={150} height={150} alt="product image"></Image></div>
 <div className="flex flex-col lg:gap-[20px] gap-[8px] md:gap-[16px] text-color12">
@@ -56,7 +56,7 @@ export default function Cart() {
 </div>
 
             </div>
-            <div className="lg:w-[350px] lg:h-[295px] w-[240px] h-[200px]  md:w-[290px] md:h-[250px] flex flex-col lg:gap-[30px] gap-[10px] md:gap-[20px]">
+            <div className="lg:w-[350px] lg:h-[295px] w-[240px] h-[200px]  md:w-[230px] md:h-[250px] flex flex-col lg:gap-[30px] gap-[10px] md:gap-[20px]">
                 <h1 className="lg:text-[21px] text-[16px] md:text-[19px] text-black font-semibold ">Summary</h1>
                 <div className="flex flex-col lg:gap-[8px] gap-[4px] md:gap-[6px]">
                     <div className="lg:w-[334px] lg:h-[28px] w-[224px] h-[26px] flex justify-between items-center lg:text-[14px] text-[12px] "><p>Subtotal</p><p>$198.00</p></div>

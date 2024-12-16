@@ -26,7 +26,9 @@ interface product2Interface {
   quantity: string,
   image: string
 }
+
 export default function Home() {
+
   const product:productInterface[] = [
     {name: "Library Stool Chair", price: "$20" ,crossPrice: "", image: `/Image.png` , tag: "New" , cartLogo: "/Buy 3.png", cartLogo2: "/Add Cart.png"},
     {name: "Library Stool Chair", price: "$20" ,crossPrice: "$39", image: `/Images.png` , tag: "Sale" , cartLogo: "/Buy 3.png", cartLogo2: "/Add Cart.png"},
@@ -49,9 +51,8 @@ export default function Home() {
     {name: "Library Stool Chair", price: "$20" ,crossPrice: "", image: `/images (2).png` , tag: "" , cartLogo: "/Buy 3.png", cartLogo2: "/Add Cart.png"},
     {name: "Library Stool Chair", price: "$20" ,crossPrice: "", image: `/Image.png` , tag: "" , cartLogo: "/Buy 3.png", cartLogo2: "/Add Cart.png"},  
   ]
-
   return (
-    <div className="h-[350vh] md:h-[530vh] lg:h-[670vh] xl:h-[800vh] flex flex-col lg:gap-[30px] gap-[10px] items-center w-full bg-white">
+    <div className="h-[770vh] md:h-[800vh] lg:h-[705vh] xl:h-[400vh] 2xl:h-[360vh] flex flex-col lg:gap-[30px] gap-[10px] items-center w-full bg-white">
       {/* section 1 */}
       <section className="xl:h-[850px] lg:h-[500px] h-[200px] md:h-[400px] lg:w-[900px] xl:w-[1321px] w-[90%] md:w-[650px] bg-color3 flex justify-around items-center lg:rounded-b-[48px] rounded-b-[20px] md:rounded-b-[30px] lg:gap-[10px] gap-[4px] md:gap-[7px] ">
         <div className="xl:h-[337px] xl:w-[557px] lg:h-[300px] lg:w-[480px] w-[370px] flex flex-col lg:gap-[10px] gap-[6px] md:gap-[8px] mx-2 ">
@@ -65,25 +66,25 @@ export default function Home() {
 </div>
           </button>
         </div>
-        <div><Image className="xl:h-[584px] lg:h-[400px] h-[180px] md:h-[304px] xl:w-[434px] lg:w-[300px] w-[300px] md:w-[220px]" src={sideImage} alt="side image of the main page "></Image></div>
+        <div><Image className="xl:h-[584px] lg:h-[400px] h-[180px] md:h-[304px] xl:w-[434px] lg:w-[300px] w-[180px] md:w-[220px]" src={sideImage} alt="side image of the main page "></Image></div>
       </section>
 
       {/* section 2 */}
-      <section className="xl:h-[139px] lg:h-[120px] h-[400px] md:h-[200px] lg:w-[900px] xl:w-[1321px] w-[90%] md:w-[650px] bg-white grid md:grid-cols-4 grid-cols-2 lg:grid-cols-7 justify-around items-center  ">
-        <div className="flex justify-center items-center"><Image className="lg:h-[87px] lg:w-[85px] h-[55px] w-[53px] md:h-[65px] md:w-[63px]" src={logo} alt="logo"></Image></div>        
-        <div className="flex justify-center items-center"><Image className="lg:h-[109px] lg:w-[107px]  h-[75px] w-[73px] md:h-[90px] md:w-[88px]" src={logo1} alt="logo1"></Image></div>
-        <div className="flex justify-center items-center"><Image className="lg:h-[139px] lg:w-[135px] h-[90px] w-[88px] md:[125px] md:w-[123px]" src={logo2} alt="logo2"></Image></div>
-        <div className="flex justify-center items-center"><Image className="lg:h-[65px] lg:w-[63px] h-[45px] w-[43px] md:h-[55px] md:w-[53px]" src={logo3} alt="logo3"></Image></div>
-        <div className="flex justify-center items-center"><Image className="lg:h-[98px] lg:w-[101px] h-[75px] w-[73px] md:h-[86px] md:w-[84px]" src={logo4} alt="logo4"></Image></div>
-        <div className="flex justify-center items-center"><Image className="lg:h-[113px] lg:w-[115px] h-[80px] w-[78px] md:h-[95px] md:w-[93px]" src={logo5} alt="logo5"></Image></div>
-        <div className="flex justify-center items-center"><Image className="lg:h-[84px] lg:w-[87px] h-[60px] w-[58px] md:h-[68px] md:w-[65px]" src={logo6} alt="logo6"></Image></div>
+      <section className="xl:h-[139px] lg:h-[120px] h-[70px] md:h-[130px] lg:w-[900px] xl:w-[1321px] w-[90%] md:w-[650px] bg-white grid grid-cols-7 gap-2 justify-around items-center  ">
+        <div className="flex justify-center items-center"><Image className="lg:h-[87px] lg:w-[85px] h-[25px] w-[28px] md:h-[40px] md:w-[38px]" src={logo} alt="logo"></Image></div>        
+        <div className="flex justify-center items-center"><Image className="lg:h-[109px] lg:w-[107px]  h-[40px] w-[48px] md:h-[65px] md:w-[63px]" src={logo1} alt="logo1"></Image></div>
+        <div className="flex justify-center items-center"><Image className="lg:h-[139px] lg:w-[135px] h-[50px] w-[65px] md:h-[100px] md:w-[98px]" src={logo2} alt="logo2"></Image></div>
+        <div className="flex justify-center items-center"><Image className="lg:h-[65px] lg:w-[63px] h-[15px] w-[18px] md:h-[30px] md:w-[28px]" src={logo3} alt="logo3"></Image></div>
+        <div className="flex justify-center items-center"><Image className="lg:h-[98px] lg:w-[101px] h-[35px] w-[48px] md:h-[36px] md:w-[59px]" src={logo4} alt="logo4"></Image></div>
+        <div className="flex justify-center items-center"><Image className="lg:h-[113px] lg:w-[115px] h-[40px] w-[53px] md:h-[70px] md:w-[68px]" src={logo5} alt="logo5"></Image></div>
+        <div className="flex justify-center items-center"><Image className="lg:h-[84px] lg:w-[87px] h-[30px] w-[33px] md:h-[43px] md:w-[40px]" src={logo6} alt="logo6"></Image></div>
       </section>
 
       {/* section 3 */}
-      <section className="xl:h-[461px] lg:h-[900px] h-[850px] md:h-[900px] lg:w-[900px] xl:w-[1321px] w-[90%] md:w-[650px] bg-white flex flex-col gap-[8px] justify-around items-start  ">
+      <section className="xl:h-[461px] lg:h-[900px] h-[450px] md:h-[850px] lg:w-[900px] xl:w-[1321px] w-[90%] md:w-[650px] bg-white flex flex-col gap-[8px] justify-around items-start  ">
         <h1 className="lg:text-[32px] text-[24px] md:text-[29px] text-color font-bold">Featured Products</h1>
         <div>
-          <div className="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2  gap-x-[25px] gap-y-[10px]">{product.map((item) => (
+          <div className="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-x-[25px] gap-y-[10px]">{product.map((item) => (
             <div  className="group lg:h-[377px] xl:w-[312px] flex flex-col lg:gap-[10px] gap-[5px] md:gap-[8px] text-color relative ">
 
   {item.tag === "New" ? <div className="lg:h-[26px] lg:w-[54px] w-[42px] h-[18px] md:w-[49px] md:h-[22px] rounded-[4px] bg-color7 text-white flex justify-center items-center lg:text-[13px] text-[9px] md:text-[11px] absolute lg:top-[20px] top-[5px] left-[5px] md:top-[8px] md:left-[8px] lg:left-[20px]"> {item.tag} </div> : ""}
@@ -111,7 +112,7 @@ export default function Home() {
       </section>
 
       {/* section 4 */}
-      <section className="xl:h-[461px] lg:h-[500px] xl:mb-20 h-[1000px] md:h-[1000px] lg:w-[900px] xl:w-[1321px] w-[90%] md:w-[650px] bg-white flex flex-col gap-[18px] justify-around items-start  ">
+      <section className="xl:h-[461px] lg:h-[450px] xl:mb-20 h-[900px] pt-20 lg:pt-0 md:h-[700px] lg:w-[900px] xl:w-[1321px] w-[90%] md:w-[650px] bg-white flex flex-col gap-[18px] justify-around items-start  ">
         <h1 className="lg:text-[32px] text-[24px] md:text-[29px] text-color font-bold">Top categories</h1>
         <div>
           <div className="grid  lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-[25px] md:gap-x-[35px] md:gap-y-[30px] gap-y-[20px]">{product2.map((item2) => (
@@ -126,12 +127,11 @@ export default function Home() {
               ))}</div>
         </div>
       </section>
-      {/* xl:w-[648px]  xl:h-[52px] lg:absolute lg:-left-60 xl:-left-60 2xl:left-72 */}
 
       {/* section 5 */}
-      <section className="xl:h-[648px] lg:h-[500px] h-[380px] md:h-[700px] lg:w-[900px] xl:w-[1321px] w-[90%] md:w-[650px] bg-white flex flex-col lg:flex-row lg:gap-[10px] gap-[15px] justify-around items-center xl:pl-16  ">
-        <p className="lg:-rotate-90 xl:text-[34px] lg:text-[32px] text-[22px] md:text-[30px]   font-semibold ">EXPLORE NEW AND POPULAR STYLES</p>
-        <div><Image className="md:h-[400px] md:w-[400px] lg:w-[530px] lg:h-[530px] lg:pl-5 xl:p-0" src={leftImage} alt="left side image " width={648} height={648}></Image></div>
+      <section className="xl:h-[698px] lg:h-[1400px] h-[1000px] pt-32 lg:pt-0 md:h-[1200px] lg:w-[1000px] xl:w-[1341px] w-[90%] md:w-[650px]  bg-white flex flex-col xl:flex-row lg:gap-[10px] gap-[15px] justify-around items-center xl:pr-40  ">
+        <p className="xl:-rotate-90 xl:text-[34px] lg:text-[32px] text-[22px] md:text-[30px] xl:w-[700px] xl:h-[90px] font-semibold ">EXPLORE NEW AND POPULAR STYLES</p>
+        <div><Image className="md:h-[400px] md:w-[400px] lg:w-[530px] lg:h-[530px]  xl:p-0" src={leftImage} alt="left side image " width={648} height={648}></Image></div>
         <div className="grid grid-cols-2 lg:gap-[20px] gap-[15px] ">
           <div><Image className="md:h-[250px] md:w-[250px] lg:w-[250px] lg:h-[250px]" width={312} height={312} src={gridImage1} alt="grid image"></Image></div>
           <div><Image className="md:h-[250px] md:w-[250px] lg:w-[250px] lg:h-[250px]" width={312} height={312} src={gridImage2} alt="grid image"></Image></div>
@@ -141,7 +141,7 @@ export default function Home() {
       </section>
 
       {/* section 6 */}
-      <section className="xl:h-[461px] lg:h-[900px] h-[850px] md:h-[900px] lg:w-[900px] xl:w-[1321px] w-[90%] md:w-[650px] bg-white flex flex-col gap-[8px] justify-around items-center  ">
+      <section className="xl:h-[461px] lg:h-[1800px] h-[850px] md:h-[900px] lg:w-[900px] xl:w-[1321px] w-[90%] md:w-[650px] bg-white flex flex-col gap-[8px] justify-around items-center  ">
         <h1 className="lg:text-[32px] text-[24px] md:text-[29px] text-color font-bold lg:pb-5">Our Products</h1>
         <div>
           <div className="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 lg:gap-y-[20px]  gap-x-[25px] gap-y-[10px]">{product3.map((item) => (
@@ -171,6 +171,9 @@ export default function Home() {
         </div>
       </section>
     </div>
-  );
-}
+
+
+          )
+        }
+
 

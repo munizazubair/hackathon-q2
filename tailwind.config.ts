@@ -35,7 +35,9 @@ const config: Config = {
         color22: "#F9F9F926",
         color23: "#F9F9F9",
         color24: "#E1E3E5",
-        color25: "#9A9CAA"
+        color25: "#9A9CAA",
+        color26: "#2A254B",
+        color27: "#D9D9D9"
       },
     },
   },

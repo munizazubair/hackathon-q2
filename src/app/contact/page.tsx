@@ -8,19 +8,20 @@ import icon3 from "/public/bi_clock-fill.png"
 
 export default function Contact() {
     return(
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center pb-10 ">
 
-<section className=" xl:h-[1144px] lg:h-[1000px] h-[950px] pt-[300px]  lg:pt-40 md:h-[1200px] md:pt-[250px] lg:w-[900px] xl:w-[1321px] w-[90%] md:w-[650px] bg-white justify-center items-center flex flex-col lg:gap-[70px] gap-[40px] md:gap-[63px]">
+<section className=" xl:h-[1144px] lg:h-[1000px] h-[950px] pt-[300px]  lg:pt-40 md:h-[1200px] md:pt-[250px] lg:w-[900px] xl:w-[1321px] w-[90%] md:w-[650px] bg-white justify-center items-center flex flex-col lg:gap-[60px] gap-[40px] md:gap-[63px]">
     <div className="flex flex-col justify-center items-center lg:gap-[15px] gap-[8px] md:gap-[12px]">
         <h1 className="lg:text-[36px] text-[26px] md:text-[30px] text-black font-bold">Get In Touch With Us</h1>
         <p className="lg:text-[16px] text-[12px] md:text-[14px] text-color15 lg:leading-[24px] leading-[15px] md:leading-[20px] text-center lg:w-[644px] lg:h-[48px]">For More Information About Our Product & Services. Please Feel Free To Drop Us An Email. Our Staff Always Be There To Help You Out. Do Not Hesitate!</p>
     </div>
-    <div className="lg:h-[923px] lg:w-[1058px] lg:flex-row flex flex-col justify-around items-start lg:gap-32 gap-20 md:gap-28">
+    <div className="lg:h-[923px] lg:w-[1058px] lg:flex-row flex flex-col justify-around items-start lg:px-10 gap-20 md:gap-28 ">
         <div className="lg:h-[573px] lg:w-[393px] flex flex-col items-start lg:gap-[30px] gap-[12px] md:gap-[20px]">
+
             <div className="flex justify-center items-start lg:gap-[16px] gap-[12px] md:gap-[12px]">
                 <div><Image src={icon1} alt="icon 1" width={22} height={27}></Image></div>
                 <div>
-                    <h1 className="lg:text-[24px] text-[20px] md:text-[22px] text-black font-semibold">Address</h1>
+                    <h1 className="lg:text-[24px] text-[16px] md:text-[22px] text-black font-semibold">Address</h1>
                     <p className="lg:leading-[19.36px] leading-[14.36px] md:leading-[16.36px] lg:text-[16px] text-[12px] md:text-[14px] text-color15 lg:w-[212px] lg:h-[57px]">236 5th SE Avenue, New York NY10000, United States</p>
                 </div>
             </div>
@@ -28,41 +29,41 @@ export default function Contact() {
             <div className="flex justify-center items-start lg:gap-[16px] gap-[12px] md:gap-[12px]">
                 <div><Image src={icon2} alt="icon 2" width={30} height={30}></Image></div>
                 <div>
-                    <h1 className="lg:text-[24px] text-black font-semibold">Phone</h1>
-                    <p className="lg:leading-[19.36px] lg:text-[16px] text-color15 lg:w-[212px] lg:h-[57px]">Mobile: +(84) 546-6789 Hotline: +(84) 456-6789</p>
+                    <h1 className="lg:text-[24px] text-[16px] md:text-[22px] text-black font-semibold">Phone</h1>
+                    <p className="lg:leading-[19.36px] lg:text-[16px] text-[12px] md:text-[14px] text-color15 lg:w-[212px] lg:h-[57px]">Mobile: +(84) 546-6789 Hotline: +(84) 456-6789</p>
                 </div>
             </div>
 
             <div className="flex justify-center items-start lg:gap-[16px] gap-[12px] md:gap-[12px]">
                 <div><Image src={icon3} alt="icon 3" width={23} height={23}></Image></div>
                 <div>
-                    <h1 className="lg:text-[24px] text-black font-semibold">Working Time</h1>
-                    <p className="lg:leading-[19.36px] lg:text-[16px] text-color15 lg:w-[212px] lg:h-[57px]">Monday-Friday: 9:00 - 22:00 Saturday-Sunday: 9:00 - 21:00</p>
+                    <h1 className="lg:text-[24px] text-[16px] md:text-[22px] text-black font-semibold">Working Time</h1>
+                    <p className="lg:leading-[19.36px] lg:text-[16px] text-[12px] md:text-[14px] text-color15 lg:w-[212px] lg:h-[57px]">Monday-Friday: 9:00 - 22:00 Saturday-Sunday: 9:00 - 21:00</p>
                 </div>
             </div>
         </div>
         <div className="lg:w-[635px] lg:h-[923px] h-[800px] md:h-[900px]">
             <form action="submit" className="flex flex-col lg:gap-[40px] gap-[25px] md:gap-[30px]">
-                <div className="lg:h-[121px] h-[75px] lg:w-[530px] w-[430px]  flex flex-col justify-between items-start">
+                <div className="lg:h-[121px] h-[60px] lg:w-[530px] w-[300px]  flex flex-col justify-between items-start">
                 <label htmlFor="name" className="lg:text-[16px] text-[12px] md:text-[14px] text-black font-semibold">Your name</label>
-                    <input type="name" placeholder="Abc" className="text-black lg:h-[75px] h-[40px] md:h-[60px] lg:w-[528px] w-[400px] md:w-[450px] border-[1px] border-color15 rounded-[5px] lg:rounded-[10px] lg:text-[16px] text-[12px] md:text-[14px] lg:pl-[25px] pl-[15px] md:pl-[20px]" />
+                    <input type="name" placeholder="Abc" className="text-black lg:h-[75px] h-[40px] md:h-[60px] lg:w-[528px] w-[300px] md:w-[450px] border-[1px] border-color15 rounded-[5px] lg:rounded-[10px] lg:text-[16px] text-[12px] md:text-[14px] lg:pl-[25px] pl-[15px] md:pl-[20px]" />
                     </div>
 
-                    <div className="lg:h-[121px] h-[75px] lg:w-[530px] w-[430px]  flex flex-col justify-between items-start">
+                    <div className="lg:h-[121px] h-[75px] lg:w-[530px] w-[300px]   flex flex-col justify-between items-start">
                     <label htmlFor="gmail" className="lg:text-[16px] text-[12px] md:text-[14px] text-black font-semibold">Email address</label>
-                    <input type="gmail" placeholder="Abc@def.com" className="text-black lg:h-[75px] h-[40px] md:h-[60px] lg:w-[528px] w-[400px] md:w-[450px] border-[1px] border-color15 rounded-[5px] lg:rounded-[10px] lg:text-[16px] text-[12px] md:text-[14px] lg:pl-[25px] pl-[15px] md:pl-[20px]" />
+                    <input type="gmail" placeholder="Abc@def.com" className="text-black lg:h-[75px] h-[40px] md:h-[60px] lg:w-[528px] w-[300px]  md:w-[450px] border-[1px] border-color15 rounded-[5px] lg:rounded-[10px] lg:text-[16px] text-[12px] md:text-[14px] lg:pl-[25px] pl-[15px] md:pl-[20px]" />
                     </div>
 
-                    <div className="lg:h-[121px] h-[75px] lg:w-[530px] w-[430px]  flex flex-col justify-between items-start">
+                    <div className="lg:h-[121px] h-[75px] lg:w-[530px] w-[300px]  flex flex-col justify-between items-start">
                     <label htmlFor="subject" className="lg:text-[16px] text-[12px] md:text-[14px] text-black font-semibold">Subject</label>
-                    <input type="subject" placeholder="This is an optional" className="text-black lg:h-[75px] h-[40px] md:h-[60px] lg:w-[528px] w-[400px] md:w-[450px] border-[1px] border-color15 rounded-[5px] lg:rounded-[10px] lg:text-[16px] text-[12px] md:text-[14px] lg:pl-[25px] pl-[15px] md:pl-[20px]" />
+                    <input type="subject" placeholder="This is an optional" className="text-black lg:h-[75px] h-[40px] md:h-[60px] lg:w-[528px] w-[300px] md:w-[450px] border-[1px] border-color15 rounded-[5px] lg:rounded-[10px] lg:text-[16px] text-[12px] md:text-[14px] lg:pl-[25px] pl-[15px] md:pl-[20px]" />
                     </div>
 
-                    <div className="lg:h-[121px] h-[95px] lg:w-[530px] w-[430px]  flex flex-col justify-between items-start">
+                    <div className="lg:h-[121px] h-[95px] lg:w-[530px] w-[300px]  flex flex-col justify-between items-start">
                     <label htmlFor="message" className="lg:text-[16px] text-[12px] md:text-[14px] text-black font-semibold">Message</label>
-                    <textarea placeholder="Hi! i’d like to ask about" className="text-black lg:h-[120px] h-[60px] lg:w-[528px] w-[400px] md:w-[450px] border-[1px] border-color15 rounded-[5px] lg:rounded-[10px] lg:text-[16px]  text-[12px] md:text-[14px] lg:pl-[25px] pl-[15px] md:pl-[20px] lg:pt-[30px] pt-[20px] md:pt-[25px]" ></textarea>
+                    <textarea placeholder="Hi! i’d like to ask about" className="text-black lg:h-[120px] h-[60px] lg:w-[528px] w-[300px]  md:w-[450px] border-[1px] border-color15 rounded-[5px] lg:rounded-[10px] lg:text-[16px]  text-[12px] md:text-[14px] lg:pl-[25px] pl-[15px] md:pl-[20px] lg:pt-[30px] pt-[20px] md:pt-[25px]" ></textarea>
                     </div>
-                    <button className="lg:h-[55px] h-[40px] md:h-[45px] lg:w-[237px] w-[190px] md:w-[200px] border-[1px] border-color16 lg:rounded-[5px] rounded-[3px] flex justify-center items-center text-white lg:text-[16px] bg-color5">Submit</button>
+                    <button className="lg:h-[55px] h-[35px] md:h-[45px] lg:w-[237px] w-[150px] md:w-[200px] border-[1px] border-color16 lg:rounded-[5px] rounded-[3px] flex justify-center items-center text-white lg:text-[16px] bg-color5">Submit</button>
             </form>
 
         </div>

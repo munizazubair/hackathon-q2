@@ -16,8 +16,8 @@ export default function Faq() {
         {question:"How do I clean and maintain my Comforty chair?", answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt, odit expedita eos molestiae ipsa totam quidem?"},
     ]
     return(
-        <div className="flex flex-col items-center">
-            <div className=" xl:h-[1144px] lg:h-[1000px] h-[950px] md:h-[1200px] md:pt-[250px] lg:w-[900px] xl:w-[1321px] w-[90%] md:w-[650px] bg-white items-center flex flex-col lg:gap-[70px] gap-[36px] md:gap-[63px]">
+        <div className="flex flex-col items-center pb-40 pt-5 md:pb-2 xl:pt-32 xl:pb-0 lg:pb-80">
+            <div className=" xl:h-[1144px] lg:h-[1000px] h-[950px] md:h-[1200px] md:pt-[20px] lg:w-[900px] xl:w-[1321px] w-[90%] md:w-[650px] bg-white items-center flex flex-col lg:gap-[70px] gap-[36px] md:gap-[63px]">
 
                 <div className="flex flex-col justify-center items-center lg:gap-[15px] gap-[8px] md:gap-[12px]">
         <h1 className="lg:text-[36px] text-[26px] md:text-[30px] text-black font-bold">Questions Looks Here</h1>
