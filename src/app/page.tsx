@@ -52,7 +52,7 @@ export default function Home() {
     {name: "Library Stool Chair", price: "$20" ,crossPrice: "", image: `/Image.png` , tag: "" , cartLogo: "/Buy 3.png", cartLogo2: "/Add Cart.png"},  
   ]
   return (
-    <div className="h-[770vh] md:h-[800vh] lg:h-[705vh] xl:h-[400vh] 2xl:h-[360vh] flex flex-col lg:gap-[30px] gap-[10px] items-center w-full bg-white">
+    <div className="h-[1300vh] md:h-[1120vh] lg:h-[800vh] xl:h-[480vh] 2xl:h-[350vh] flex flex-col lg:gap-[30px] gap-[10px] items-center w-full bg-white">
       {/* section 1 */}
       <section className="xl:h-[850px] lg:h-[500px] h-[200px] md:h-[400px] lg:w-[900px] xl:w-[1321px] w-[90%] md:w-[650px] bg-color3 flex justify-around items-center lg:rounded-b-[48px] rounded-b-[20px] md:rounded-b-[30px] lg:gap-[10px] gap-[4px] md:gap-[7px] ">
         <div className="xl:h-[337px] xl:w-[557px] lg:h-[300px] lg:w-[480px] w-[370px] flex flex-col lg:gap-[10px] gap-[6px] md:gap-[8px] mx-2 ">
@@ -129,7 +129,7 @@ export default function Home() {
       </section>
 
       {/* section 5 */}
-      <section className="xl:h-[698px] lg:h-[1400px] h-[1000px] pt-32 lg:pt-0 md:h-[1200px] lg:w-[1000px] xl:w-[1341px] w-[90%] md:w-[650px]  bg-white flex flex-col xl:flex-row lg:gap-[10px] gap-[15px] justify-around items-center xl:pr-40  ">
+      <section className="xl:h-[698px] lg:h-[1400px] h-[1000px] pt-32 lg:pt-0 md:h-[1100px] lg:w-[1000px] xl:w-[1341px] w-[90%] md:w-[650px]  bg-white flex flex-col xl:flex-row lg:gap-[10px] gap-[15px] justify-around items-center xl:pr-40  ">
         <p className="xl:-rotate-90 xl:text-[34px] lg:text-[32px] text-[22px] md:text-[30px] xl:w-[700px] xl:h-[90px] font-semibold ">EXPLORE NEW AND POPULAR STYLES</p>
         <div><Image className="md:h-[400px] md:w-[400px] lg:w-[530px] lg:h-[530px]  xl:p-0" src={leftImage} alt="left side image " width={648} height={648}></Image></div>
         <div className="grid grid-cols-2 lg:gap-[20px] gap-[15px] ">
@@ -141,7 +141,7 @@ export default function Home() {
       </section>
 
       {/* section 6 */}
-      <section className="xl:h-[461px] lg:h-[1800px] h-[850px] md:h-[900px] lg:w-[900px] xl:w-[1321px] w-[90%] md:w-[650px] bg-white flex flex-col gap-[8px] justify-around items-center  ">
+      <section className="xl:h-[800px] lg:h-[1900px] h-[900px] md:h-[900px] lg:w-[900px] xl:w-[1321px] w-[90%] md:w-[650px] bg-white flex flex-col gap-[8px] justify-around items-center ">
         <h1 className="lg:text-[32px] text-[24px] md:text-[29px] text-color font-bold lg:pb-5">Our Products</h1>
         <div>
           <div className="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 lg:gap-y-[20px]  gap-x-[25px] gap-y-[10px]">{product3.map((item) => (
