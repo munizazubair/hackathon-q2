@@ -10,30 +10,8 @@ import img1 from "/public/img1.jpeg"
 import img2 from "/public/Parent.png";
 import img3 from "/public/Parent (1).png"
 
-import { useState , useEffect } from "react"
-
 export default function About() {
 
-
-    const [imageIndex, setImageIndex] = useState(0);
-
-    const images = [
-      '/Image.png',
-      '/Images (2).png',      
-    ];
-  
-    useEffect(() => {
-      // Set up an interval to change the image every 5 seconds
-      const intervalId = setInterval(() => {
-        setImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-      }, 5000); // Change image every 3 seconds
-  
-      // Cleanup function to clear the interval when the component unmounts
-      return () => {
-        clearInterval(intervalId);
-      };
-    }, []); // Empty dependency array to run the effect once when the component mounts
-  
     return(
         <div className="flex flex-col  items-center lg:py-[80px] lg:gap-[120px] gap-[35px] py-[20px] md:gap-[38px] md:py-[26px]">
             <div className="flex  lg:gap-[20px] md:gap-[12px] items-center gap-[8px]  px-5 ">
@@ -45,7 +23,7 @@ export default function About() {
                     <button className="lg:h-[56px] lg:w-[179px] md:h-[32px] md:w-[110px] h-[16px] w-[65px] flex justify-center items-center lg:text-[16px] text-[6px] md:text-[12px] bg-color22 text-white rounded-[4px]">View collection</button>
                 </div>
                 <div>
-                <Image className="lg:w-[602px] lg:h-[478px]  md:h-[200px] md:w-[200px]  w-[180px] h-[130px]" width={100} height={100} src={images[imageIndex]} alt={`Image ${imageIndex + 1}`} ></Image>
+                <Image className="lg:w-[602px] lg:h-[478px]  md:h-[200px] md:w-[200px]  w-[180px] h-[130px]" width={100} height={100} src={product} alt={`Image`} ></Image>
 
                     {/* <Image  src={product} alt="product image" ></Image> */}
                     </div>
