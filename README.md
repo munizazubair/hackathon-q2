@@ -1,3 +1,6 @@
+This e-commerce website is focused on delivering a clean and user-friendly UI/UX. I implemented basic navigation using the Link component for routing between pages. For the product detail page, dynamic routing was used to display product-specific information based on the URL. The entire website, including styling and responsiveness, was built using Tailwind CSS. To make it responsive, I used breakpoints and created a custom hamburger menu for smaller screens using useState to toggle its visibility, handling interactions with event handling. No libraries or third-party tools were used, ensuring a fully custom-built experience.
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
