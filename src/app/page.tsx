@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import sideImage from "/public/Product Image.png"
@@ -12,16 +14,20 @@ import leftImage from "/public/Image (1).png"
 import gridImage1 from "/public/Image (2).png"
 import gridImage2 from "/public/Image.png"
 
-interface productInterface {
-  name:string,
-  price:string,
-  crossPrice: string,
-  image:string,
-  tag:string,
-  cartLogo: string,
-  cartLogo2: string
+import { useState , useEffect } from "react";
+export interface ProductI {
+  name:string;
+  description:string;
+  quantity:number;
+  image:string;
+  price:number;
+  crossPrice:string;
+  tag:string;
+  cartLogo:string;
+  cartLogo2:string;
 }
-interface product2Interface {
+
+interface productInterface {
   name: string,
   quantity: string,
   image: string
@@ -29,28 +35,98 @@ interface product2Interface {
 
 export default function Home() {
 
-  const product:productInterface[] = [
-    {name: "Library Stool Chair", price: "$20" ,crossPrice: "", image: `/Image.png` , tag: "New" , cartLogo: "/Buy 3.png", cartLogo2: "/Add Cart.png"},
-    {name: "Library Stool Chair", price: "$20" ,crossPrice: "$39", image: `/Images.png` , tag: "Sale" , cartLogo: "/Buy 3.png", cartLogo2: "/Add Cart.png"},
-    {name: "Library Stool Chair", price: "$20" ,crossPrice: "", image: `/Image (1).png` , tag: "" , cartLogo: "/Buy 3.png", cartLogo2: "/Add Cart.png"},
-    {name: "Library Stool Chair", price: "$20" ,crossPrice: "", image: `/Image (2).png` , tag: "" , cartLogo: "/Buy 3.png", cartLogo2: "/Add Cart.png"},
-  ]
-  const product2: product2Interface[] = [
+
+  const product2: productInterface[] = [
     {name: "Wing Chair", quantity: "3,584 Products", image: "/cateogary1.png"},
     {name: "Wooden Chair", quantity: "154 Products", image: "/cateogary2.png"},
     {name: "Desk Chair", quantity: "157 Products", image: "/cateogary3.png"}
   ]
 
-  const product3:productInterface[] = [
-    {name: "Library Stool Chair", price: "$20" ,crossPrice: "", image: `/Image.png` , tag: "New" , cartLogo: "/Buy 3.png", cartLogo2: "/Add Cart.png"},
-    {name: "Library Stool Chair", price: "$20" ,crossPrice: "$39", image: `/Images.png` , tag: "Sale" , cartLogo: "/Buy 3.png", cartLogo2: "/Add Cart.png"},
-    {name: "Library Stool Chair", price: "$20" ,crossPrice: "", image: `/Image (1).png` , tag: "" , cartLogo: "/Buy 3.png", cartLogo2: "/Add Cart.png"},
-    {name: "Library Stool Chair", price: "$20" ,crossPrice: "", image: `/Image (2).png` , tag: "" , cartLogo: "/Buy 3.png", cartLogo2: "/Add Cart.png"},
-    {name: "Library Stool Chair", price: "$20" ,crossPrice: "", image: `/cateogary2.png` , tag: "New" , cartLogo: "/Buy 3.png", cartLogo2: "/Add Cart.png"},
-    {name: "Library Stool Chair", price: "$20" ,crossPrice: "$39", image: `/images (1).png` , tag: "Sale" , cartLogo: "/Buy 3.png", cartLogo2: "/Add Cart.png"},
-    {name: "Library Stool Chair", price: "$20" ,crossPrice: "", image: `/images (2).png` , tag: "" , cartLogo: "/Buy 3.png", cartLogo2: "/Add Cart.png"},
-    {name: "Library Stool Chair", price: "$20" ,crossPrice: "", image: `/Image.png` , tag: "" , cartLogo: "/Buy 3.png", cartLogo2: "/Add Cart.png"},  
-  ]
+
+
+  const [data, setData] = useState<ProductI[]>([]); //api se data arha he
+  const [cart, setCart] = useState<ProductI[]>([]);//cart main jo data store hoga
+
+  useEffect(() => {
+    async function fetchData() {
+      let Products = await (await fetch("http://localhost:3000/api/product")).json();
+      setData(Products);
+    }
+    fetchData();
+
+    // Get cart data from localStorage once on mount
+    // const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
+    // setCart(storedCart);
+  }, []);
+
+  // Add to Cart functionality
+  const addToCart = (product: ProductI) => {
+    const cartCopy = [...cart];
+    const existingProduct = cartCopy.find((item) => item.image === product.image);
+    
+    if (existingProduct) {
+      existingProduct.quantity += 1;
+    } else {
+      // Set initial quantity to 0
+      cartCopy.push({ ...product, quantity: 0 });
+    }
+
+    // Save updated cart to localStorage
+    localStorage.setItem("cart", JSON.stringify(cartCopy));
+    setCart(cartCopy); // Update state to reflect the latest cart
+  };
+
+
+  // Get the quantity of a product in the cart
+  const getProductQuantity = (name: string) => {
+    const product = cart.find((item) => item.image === name);
+    return product ? product.quantity : 0;
+  };
+  
+
+
+  // 2nd
+  const [data2, setData2] = useState<ProductI[]>([]); //api se data arha he
+  const [cart2, setCart2] = useState<ProductI[]>([]);//cart main jo data store hoga
+
+  useEffect(() => {
+    async function fetchData() {
+      let Products = await (await fetch("http://localhost:3000/api/product2")).json();
+      setData2(Products);
+    }
+    fetchData();
+
+    // Get cart data from localStorage once on mount
+    // const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
+    // setCart(storedCart);
+  }, []);
+
+  // Add to Cart functionality
+  const addToCart2 = (product: ProductI) => {
+    const cartCopy = [...cart2];
+    const existingProduct = cartCopy.find((item) => item.image === product.image);
+    
+    if (existingProduct) {
+      existingProduct.quantity += 1;
+    } else {
+      // Set initial quantity to 0
+      cartCopy.push({ ...product, quantity: 0 });
+    }
+
+    // Save updated cart to localStorage
+    localStorage.setItem("cart", JSON.stringify(cartCopy));
+    setCart2(cartCopy); // Update state to reflect the latest cart
+  };
+
+
+  // Get the quantity of a product in the cart
+  const getProductQuantity2 = (name: string) => {
+    const product = cart.find((item) => item.image === name);
+    return product ? product.quantity : 0;
+  };
+  
+
+
   return (
     <div className="h-[4350px] sm:h-[4700px] md:h-[4850px] lg:h-[4850px] xl:h-[3800px] 2xl:h-[3800px] flex flex-col lg:gap-[30px] gap-[10px] items-center w-full bg-white">
       {/* section 1 */}
@@ -58,6 +134,7 @@ export default function Home() {
         <div className="xl:h-[337px] xl:w-[557px] lg:h-[300px] lg:w-[480px] w-[370px] flex flex-col lg:gap-[10px] gap-[6px] md:gap-[8px] mx-2 ">
           <p className="lg:text-[14px] text-[10px] md:text-[12px] text-color">Welcome to chairy</p>
           <h1 className="xl:text-[60px] lg:text-[50px] text-[16px] md:text-[33px]  text-color font-bold xl:leading-[66px] lg:leading-[53px] leading-[22px] md:leading-[33px]">Best Furniture Collection for your interior.</h1>
+          <Link href={"/productpage"}>
           <button className="lg:h-[52px] h-[32px] md:h-[40px] lg:w-[171px] w-[100px] md:w-[130px] lg:mt-[25px] mt-[10px] md:mt-[18px] bg-color5 rounded-[8px] text-white flex justify-center items-center lg:gap-[20px] gap-[12px] md:gap-[15px] lg:text-[16px] text-[12px] md:text-[14px]">
             <p>Shop Now</p>
             <div><svg className="lg:h-[24px] lg:w-[24px] h-[18px] w-[18px] md:h-[20px] md:w-[20px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,6 +142,7 @@ export default function Home() {
 </svg>
 </div>
           </button>
+          </Link>
         </div>
         <div><Image className="xl:h-[584px] lg:h-[400px] h-[180px] md:h-[304px] xl:w-[434px] lg:w-[300px] w-[180px] md:w-[220px]" src={sideImage} alt="side image of the main page "></Image></div>
       </section>
@@ -80,11 +158,12 @@ export default function Home() {
         <div className="flex justify-center items-center"><Image className="lg:h-[84px] lg:w-[87px] h-[30px] w-[33px] md:h-[43px] md:w-[40px]" src={logo6} alt="logo6"></Image></div>
       </section>
 
-      {/* section 3 */}
+      {/* section 3 */}    
       <section className="xl:h-[461px] lg:h-[900px] h-[550px] md:h-[850px] lg:w-[900px] xl:w-[1321px] w-[90%] md:w-[650px] bg-white flex flex-col gap-[8px] justify-around items-start  ">
         <h1 className="lg:text-[32px] text-[24px] md:text-[29px] text-color font-bold">Featured Products</h1>
         <div>
-          <div className="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-x-[25px] gap-y-[10px]">{product.map((item) => (
+          <div className="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-x-[25px] gap-y-[10px]">
+            {data2.map((item) => (
             <div  className="group lg:h-[377px] xl:w-[312px] flex flex-col lg:gap-[10px] gap-[5px] md:gap-[8px] text-color relative ">
 
   {item.tag === "New" ? <div className="lg:h-[26px] lg:w-[54px] w-[42px] h-[18px] md:w-[49px] md:h-[22px] rounded-[4px] bg-color7 text-white flex justify-center items-center lg:text-[13px] text-[9px] md:text-[11px] absolute lg:top-[20px] top-[5px] left-[5px] md:top-[8px] md:left-[8px] lg:left-[20px]"> {item.tag} </div> : ""}
@@ -99,14 +178,17 @@ export default function Home() {
                 <h2>{item.crossPrice ? <div className="lg:text-[16px] text-[12px] md:text-[14px] text-color9 line-through">{item.crossPrice}</div> : ""}</h2>
                 </div>
               </div>
-              
-              <div className="lg:h-[44px] lg:w-[44px] h-[25px] w-[25px] md:h-[40px] md:w-[40px] rounded-[2px]  hidden group-hover:flex justify-center items-center lg:rounded-[4px] bg-color5 ">
+              <button  onClick={() => addToCart(item)} className="lg:h-[44px] lg:w-[44px] h-[25px] w-[25px] md:h-[40px] md:w-[40px] rounded-[2px]  hidden group-hover:flex justify-center items-center lg:rounded-[4px] bg-color5 ">
                 
-                <Image className="h-[10px] w-[10px] md:h-[25px] md:w-[25px]" src={item.cartLogo} alt={item.name} width={19} height={19} ></Image></div>
-                <div className="bg-color3 lg:h-[44px] lg:w-[44px]  h-[25px] w-[25px] md:h-[40px] md:w-[40px] rounded-[2px] flex group-hover:hidden justify-center items-center lg:rounded-[4px]  ">
+                <Image className="h-[10px] w-[10px] md:h-[25px] md:w-[25px]" src={item.cartLogo} alt={item.name} width={19} height={19} ></Image></button>
+                
+             <div className="bg-color3 lg:h-[44px] lg:w-[44px]  h-[25px] w-[25px] md:h-[40px] md:w-[40px] rounded-[2px] flex group-hover:hidden justify-center items-center lg:rounded-[4px]  ">
                 <Image className="h-[25px] w-[25px]  md:h-[40px] md:w-[40px]" src={item.cartLogo2} alt={item.name} width={220} height={220} ></Image> 
                 </div>
               </div>
+              <div className="lg:text-[14px] text-[12px] md:text-[14px] text-gray-600 ">
+          <span className="font-semibold ">Quantity:</span> <span className="group-hover:text-color6 ">{getProductQuantity2(item.image)}</span>
+        </div>
                </div>))}</div>
         </div>
       </section>
@@ -141,11 +223,14 @@ export default function Home() {
       </section>
 
       {/* section 6 */}
-      <section className="xl:h-[800px] lg:h-[1200px] h-[900px] md:h-[900px] lg:w-[900px] xl:w-[1321px] w-[90%] md:w-[650px] bg-white flex flex-col gap-[8px] justify-around items-center ">
+      <section className="xl:h-[800px] lg:h-[1200px] h-auto lg:w-[900px] xl:w-[1321px] w-[90%] md:w-[650px] bg-white flex flex-col gap-[8px] justify-around items-center ">
         <h1 className="lg:text-[32px] text-[24px] md:text-[29px] text-color font-bold lg:pb-5">Our Products</h1>
         <div>
-          <div className="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 lg:gap-y-[20px]  gap-x-[25px] gap-y-[10px]">{product3.map((item) => (
-            <div  className="group lg:h-[377px] xl:w-[312px] flex flex-col lg:gap-[10px] gap-[5px] md:gap-[8px] text-color relative ">
+          <div className="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 lg:gap-y-[55px]  gap-x-[25px] gap-y-[10px]">
+                       
+            
+            {data.map((item: ProductI , index: number) => (
+            <div key={index}  className="group lg:h-[377px] xl:w-[312px] flex flex-col lg:gap-[10px] gap-[5px] md:gap-[8px] text-color relative ">
 
   {item.tag === "New" ? <div className="lg:h-[26px] lg:w-[54px] w-[42px] h-[18px] md:w-[49px] md:h-[22px] rounded-[4px] bg-color7 text-white flex justify-center items-center lg:text-[13px] text-[9px] md:text-[11px] absolute lg:top-[20px] top-[5px] left-[5px] md:top-[8px] md:left-[8px] lg:left-[20px]"> {item.tag} </div> : ""}
   {item.tag === "Sale" ? <div className="lg:h-[26px] lg:w-[49px] w-[47px] h-[18px] md:w-[54px] md:h-[22px] rounded-[4px] bg-color8 text-white flex justify-center items-center lg:text-[13px] text-[9px] md:text-[11px] absolute  lg:top-[20px] top-[5px] left-[5px] md:top-[8px] md:left-[8px] lg:left-[20px]"> {item.tag} </div> : ""}
@@ -159,15 +244,20 @@ export default function Home() {
                 <h2>{item.crossPrice ? <div className="lg:text-[16px] text-[12px] md:text-[14px] text-color9 line-through">{item.crossPrice}</div> : ""}</h2>
                 </div>
               </div>
-              
-              <div className="lg:h-[44px] lg:w-[44px] h-[25px] w-[25px] md:h-[40px] md:w-[40px] rounded-[2px]  hidden group-hover:flex justify-center items-center lg:rounded-[4px] bg-color5 ">
+              <button  onClick={() => addToCart(item)} className="lg:h-[44px] lg:w-[44px] h-[25px] w-[25px] md:h-[40px] md:w-[40px] rounded-[2px]  hidden group-hover:flex justify-center items-center lg:rounded-[4px] bg-color5 ">
                 
-                <Image className="h-[10px] w-[10px] md:h-[25px] md:w-[25px]" src={item.cartLogo} alt={item.name} width={19} height={19} ></Image></div>
-                <div className="bg-color3 lg:h-[44px] lg:w-[44px]  h-[25px] w-[25px] md:h-[40px] md:w-[40px] rounded-[2px] flex group-hover:hidden justify-center items-center lg:rounded-[4px]  ">
+                <Image className="h-[10px] w-[10px] md:h-[25px] md:w-[25px]" src={item.cartLogo} alt={item.name} width={19} height={19} ></Image></button>
+               
+                <button  className="bg-color3 lg:h-[44px] lg:w-[44px]  h-[25px] w-[25px] md:h-[40px] md:w-[40px] rounded-[2px] flex group-hover:hidden justify-center items-center lg:rounded-[4px]  ">
                 <Image className="h-[25px] w-[25px]  md:h-[40px] md:w-[40px]" src={item.cartLogo2} alt={item.name} width={220} height={220} ></Image> 
-                </div>
+                </button>
+
               </div>
-               </div>))}</div>
+              <div className="lg:text-[14px] text-[12px] md:text-[14px] text-gray-600 ">
+          <span className="font-semibold ">Quantity:</span> <span className="group-hover:text-color6 ">{getProductQuantity(item.image)}</span>
+        </div>
+               </div>))}
+               </div>
         </div>
       </section>
     </div>

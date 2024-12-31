@@ -1,5 +1,8 @@
+"use client";
 import Image from "next/image"
 import cartlogo from "/public/Group.png"
+import { useState , useEffect } from "react"
+import { ProductI3 } from "../page";
 
 interface ListInterface {
     name: string,
@@ -10,26 +13,26 @@ interface ListInterface {
 interface ParamsInterface {
     id: number
 }
-interface DynamicListInterface {
-    [key: number]: { name: string, price: string, image: string }
-}
+interface DynamicListInterface {id:number; name: string, price: string, image: string, quantity:number }
+
 export default function Details({ params }: { params: ParamsInterface }) {
 
-    const dynamicList: DynamicListInterface = {
-        1: {name: "Library Stool Chair",price:"$50.00 USD", image: "/Image.png"},
-        2: { name: "Library Stool Chair", price: "$20.00 USD", image: "/Images.png" },
-        3: {name: "Library Stool Chair",price:"$81.00 USD", image: "/Image (1).png"},
-        4: {name: "Library Stool Chair",price:"$49.00 USD", image: "/Image (2).png"},
-        5: {name: "Library Stool Chair",price:"$30.00 USD", image: "/cateogary2.png"},
-        6: {name: "Library Stool Chair",price:"$80.00 USD", image: "/images (1).png"},
-        7: {name: "Library Stool Chair",price:"$90.00 USD", image: "/images (2).png"},
-        8: {name: "Library Stool Chair",price:"$24.00 USD", image: "/Image.png"},
-        9: {name: "Library Stool Chair",price:"$67.00 USD", image: "/cateogary1.png"},
-        10: { name: "Library Stool Chair", price: "$20.00 USD", image: "/Images.png" },
-        11: {name: "Library Stool Chair",price:"$32.00 USD", image: "/Image (1).png"},
-        12: {name: "Library Stool Chair",price:"$40.00 USD", image: "/cateogary3.png"},
 
-    }
+    const dynamicList: DynamicListInterface[] = [
+        { id: 1, name: "Library Stool Chair", price: "$50.00 USD", image: "/Image.png", quantity: 0 },
+        { id: 2, name: "Library Stool Chair", price: "$20.00 USD", image: "/Images.png", quantity: 0 },
+        { id: 3, name: "Library Stool Chair", price: "$81.00 USD", image: "/Image (1).png", quantity: 0 },
+        { id: 4, name: "Library Stool Chair", price: "$49.00 USD", image: "/Image (2).png", quantity: 0 },
+        { id: 5, name: "Library Stool Chair", price: "$30.00 USD", image: "/cateogary2.png", quantity: 0 },
+        { id: 6, name: "Library Stool Chair", price: "$80.00 USD", image: "/images (1).png", quantity: 0 },
+        { id: 7, name: "Library Stool Chair", price: "$90.00 USD", image: "/images (2).png", quantity: 0 },
+        { id: 8, name: "Library Stool Chair", price: "$24.00 USD", image: "/Image.png", quantity: 0 },
+        { id: 9, name: "Library Stool Chair", price: "$67.00 USD", image: "/cateogary1.png", quantity: 0 },
+        { id: 10, name: "Library Stool Chair", price: "$20.00 USD", image: "/Images.png", quantity: 0 },
+        { id: 11, name: "Library Stool Chair", price: "$32.00 USD", image: "/Image (1).png", quantity: 0 },
+        { id: 12, name: "Library Stool Chair", price: "$40.00 USD", image: "/cateogary3.png", quantity: 0 }
+      ];
+      
     const listProducts: ListInterface[] = [
         { name: "Library Stool Chair", price: "$20", image: `/images (2).png` },
         { name: "Library Stool Chair", price: "$20", image: `/Image.png` },

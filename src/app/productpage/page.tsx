@@ -1,5 +1,20 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import { useState , useEffect } from "react";
+
+export interface ProductI3 {
+  id:number;
+  name:string;
+  description:string;
+  quantity:number;
+  image:string;
+  price:number;
+  crossPrice:string;
+  tag:string;
+  cartLogo:string;
+  cartLogo2:string;
+}
 
 interface productInterface {
     id:number,
@@ -16,6 +31,48 @@ interface Product1 {
 }
 export default function Product() {
     
+  const [data3, setData3] = useState<ProductI3[]>([]); //api se data arha he
+    const [cart3, setCart3] = useState<ProductI3[]>([]);//cart main jo data store hoga
+  
+    useEffect(() => {
+      async function fetchData() {
+        let Products = await (await fetch("http://localhost:3000/api/product3")).json();
+        setData3(Products);
+      }
+      fetchData();
+  
+      // Get cart data from localStorage once on mount
+      const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
+      setCart3(storedCart);
+    }, []);
+  
+    // Add to Cart functionality
+    const addToCart2 = (product: ProductI3) => {
+      const cartCopy = [...cart3];
+      const existingProduct = cartCopy.find((item) => item.image === product.image);
+      
+      if (existingProduct) {
+        existingProduct.quantity += 1;
+      } else {
+        // Set initial quantity to 0
+        cartCopy.push({ ...product, quantity: 0 });
+      }
+  
+      // Save updated cart to localStorage
+      localStorage.setItem("cart", JSON.stringify(cartCopy));
+      setCart3(cartCopy); // Update state to reflect the latest cart
+    };
+  
+  
+    // Get the quantity of a product in the cart
+    const getProductQuantity = (name: string) => {
+      const product = cart3.find((item) => item.image === name);
+      return product ? product.quantity : 0;
+    };
+    
+  
+  
+
     const product3:productInterface[] = [
         {id:1, name: "Library Stool Chair", price: "$20" ,crossPrice: "", image: `/Image.png` , tag: "New" , cartLogo: "/Buy 3.png", cartLogo2: "/Add Cart.png"},
         {id:2, name: "Library Stool Chair", price: "$20" ,crossPrice: "$39", image: `/Images.png` , tag: "Sale" , cartLogo: "/Buy 3.png", cartLogo2: "/Add Cart.png"},
@@ -45,7 +102,7 @@ export default function Product() {
             <section className="xl:h-[1383px] lg:h-[1900px] h-[1250px] md:h-[2300px] lg:w-[900px] xl:w-[1321px] w-[90%] md:w-[650px] bg-white flex flex-col justify-around items-start  ">
         <h1 className="lg:text-[32px] text-[24px] md:text-[29px] text-color font-bold lg:pb-5">Our Products</h1>
         <div>
-          <div className="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 lg:gap-y-[20px]  gap-x-[25px] gap-y-[10px]">{product3.map((item) => (
+          <div className="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 lg:gap-y-[20px]  gap-x-[25px] gap-y-[10px]">{data3.map((item) => (
                       <Link href={`/productpage/${item.id}`}>
 
             <div  className="group lg:h-[377px] xl:w-[312px] flex flex-col lg:gap-[10px] gap-[5px] md:gap-[8px] text-color relative ">
