@@ -44,8 +44,8 @@ export default function Home() {
 
 
 
-  const [data, setData] = useState<ProductI[]>([]); //api se data arha he
-  const [cart, setCart] = useState<ProductI[]>([]);//cart main jo data store hoga
+  const [data, setData] = useState<ProductI[]>([]); 
+  const [cart, setCart] = useState<ProductI[]>([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -53,13 +53,8 @@ export default function Home() {
       setData(Products);
     }
     fetchData();
-
-    // Get cart data from localStorage once on mount
-    // const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
-    // setCart(storedCart);
   }, []);
 
-  // Add to Cart functionality
   const addToCart = (product: ProductI) => {
     const cartCopy = [...cart];
     const existingProduct = cartCopy.find((item) => item.image === product.image);
@@ -67,17 +62,14 @@ export default function Home() {
     if (existingProduct) {
       existingProduct.quantity += 1;
     } else {
-      // Set initial quantity to 0
       cartCopy.push({ ...product, quantity: 0 });
     }
 
-    // Save updated cart to localStorage
     localStorage.setItem("cart", JSON.stringify(cartCopy));
-    setCart(cartCopy); // Update state to reflect the latest cart
+    setCart(cartCopy);
   };
 
 
-  // Get the quantity of a product in the cart
   const getProductQuantity = (name: string) => {
     const product = cart.find((item) => item.image === name);
     return product ? product.quantity : 0;
@@ -86,8 +78,8 @@ export default function Home() {
 
 
   // 2nd
-  const [data2, setData2] = useState<ProductI[]>([]); //api se data arha he
-  const [cart2, setCart2] = useState<ProductI[]>([]);//cart main jo data store hoga
+  const [data2, setData2] = useState<ProductI[]>([]); 
+  const [cart2, setCart2] = useState<ProductI[]>([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -96,12 +88,8 @@ export default function Home() {
     }
     fetchData();
 
-    // Get cart data from localStorage once on mount
-    // const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
-    // setCart(storedCart);
   }, []);
 
-  // Add to Cart functionality
   const addToCart2 = (product: ProductI) => {
     const cartCopy = [...cart2];
     const existingProduct = cartCopy.find((item) => item.image === product.image);
@@ -109,17 +97,14 @@ export default function Home() {
     if (existingProduct) {
       existingProduct.quantity += 1;
     } else {
-      // Set initial quantity to 0
       cartCopy.push({ ...product, quantity: 0 });
     }
 
-    // Save updated cart to localStorage
     localStorage.setItem("cart", JSON.stringify(cartCopy));
-    setCart2(cartCopy); // Update state to reflect the latest cart
+    setCart2(cartCopy); 
   };
 
 
-  // Get the quantity of a product in the cart
   const getProductQuantity2 = (name: string) => {
     const product = cart.find((item) => item.image === name);
     return product ? product.quantity : 0;

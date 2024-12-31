@@ -31,8 +31,8 @@ interface Product1 {
 }
 export default function Product() {
     
-  const [data3, setData3] = useState<ProductI3[]>([]); //api se data arha he
-    const [cart3, setCart3] = useState<ProductI3[]>([]);//cart main jo data store hoga
+  const [data3, setData3] = useState<ProductI3[]>([]); 
+    const [cart3, setCart3] = useState<ProductI3[]>([]);
   
     useEffect(() => {
       async function fetchData() {
@@ -41,12 +41,10 @@ export default function Product() {
       }
       fetchData();
   
-      // Get cart data from localStorage once on mount
       const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
       setCart3(storedCart);
     }, []);
   
-    // Add to Cart functionality
     const addToCart2 = (product: ProductI3) => {
       const cartCopy = [...cart3];
       const existingProduct = cartCopy.find((item) => item.image === product.image);
@@ -54,17 +52,14 @@ export default function Product() {
       if (existingProduct) {
         existingProduct.quantity += 1;
       } else {
-        // Set initial quantity to 0
         cartCopy.push({ ...product, quantity: 0 });
       }
   
-      // Save updated cart to localStorage
       localStorage.setItem("cart", JSON.stringify(cartCopy));
-      setCart3(cartCopy); // Update state to reflect the latest cart
+      setCart3(cartCopy); 
     };
   
   
-    // Get the quantity of a product in the cart
     const getProductQuantity = (name: string) => {
       const product = cart3.find((item) => item.image === name);
       return product ? product.quantity : 0;
