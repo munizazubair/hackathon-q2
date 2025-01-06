@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState , useEffect } from "react";
+import EmailInput from "@/components/email-input";
 
 export interface ProductI3 {
   id:number;
@@ -36,8 +37,12 @@ export default function Product() {
   
     useEffect(() => {
       async function fetchData() {
-        let Products = await (await fetch("http://localhost:3000/api/product3")).json();
-        setData3(Products);
+        try {
+          let Products = await (await fetch("https://hackathon-q2-7wlzbdhcp-munizazubairs-projects.vercel.app/api/product3")).json();
+          setData3(Products);
+        } catch (error) {
+          console.error("Failed to fetch products:", error);
+        }
       }
       fetchData();
   
@@ -130,10 +135,7 @@ export default function Product() {
       <section className="w-full lg:h-[754px] h-[804px] md:h-[800px] flex flex-col justify-center items-center lg:gap-[70px] gap-[30px] md:gap-[50px] bg-color17">
         <div className="lg:h-[165px] lg:w-[760px] flex flex-col items-center lg:gap-[70px] gap-[30px] md:gap-[50px]">
             <h1 className="lg:text-[50px] text-[20px] md:text-[28px] text-black font-semibold">Or Subscribe To The Newsletter</h1>
-            <div className="flex items-center lg:gap-[20px] gap-[13px] md:gap-[17px]">
-                <input type="text" placeholder="Email address..." className="lg:h-[32px] lg:w-[643px] w-[200px] h-[26px] md:h-[29px] text-[12px] md:text-[14px] text-colo18 border-b-2 border-color18 bg-transparent lg:pl-4 pl-2" />
-                <button className="lg:h-[32px] lg:w-[91px] w-[60px] md:w-[80px] h-[26px] md:h-[29px] lg:text-[16px] text-[12px] md:text-[14px] text-colo18 border-b-2 border-color18">SUBMIT</button>
-            </div>
+            <EmailInput />
         </div>
         <div className="lg:h-[319px] xl:w-[1321px] ">
         <div className="lg:h-[319px] lg:w-[900px] xl:w-[1321px] flex flex-col items-center lg:gap-[70px] gap-[30px] md:gap-[50px] px-2 lg:p-0">

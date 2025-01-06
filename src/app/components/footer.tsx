@@ -2,6 +2,7 @@ import Image from "next/image"
 import mainlogo from "/public/Logo Icon.png"
 import icons from "/public/Social Links.png"
 import paymentlogos from "/public/Rectangle 33.png"
+import EmailForm from "@/components/footer-input"
 
 export default function Footer() {
     return(
@@ -40,8 +41,7 @@ export default function Footer() {
                 <div className="lg:h-[142px] xl:w-[330px] w-[120px] flex flex-col gap-[10px] pb-6 lg:p-0">
                 <h2 className="lg:text-[14px] text-[12px] text-color9">Newsletter</h2>
                 <div className="flex flex-col gap-[10px]">
-                    <div className="flex lg:gap-[4px]"><input className="lg:h-[35px] lg:w-[150px] rounded-[8px] border-[1px] border-color24 lg:text-[16px] text-[10px] pl-2" placeholder="Your email" type="text" /> 
-                    <button className="bg-color5 lg:h-[36px] lg:w-[100px] flex justify-center items-center lg:text-[16px] text-[12px] h-[25px] w-[200px] px-1.5  text-white rounded-[4px] lg:rounded-[8px]">Subscribe</button></div>
+                   <EmailForm />
                     <p className=" lg:text-[16px] text-[10px] text-color12 w-[180px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt erat enim.</p>                
                     </div>
                 </div>

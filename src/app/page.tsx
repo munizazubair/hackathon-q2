@@ -49,7 +49,7 @@ export default function Home() {
 
   useEffect(() => {
     async function fetchData() {
-      let Products = await (await fetch("http://localhost:3000/api/product")).json();
+      let Products = await (await fetch("https://hackathon-q2-7wlzbdhcp-munizazubairs-projects.vercel.app/api/product")).json();
       setData(Products);
     }
     fetchData();
@@ -83,7 +83,7 @@ export default function Home() {
 
   useEffect(() => {
     async function fetchData() {
-      let Products = await (await fetch("http://localhost:3000/api/product2")).json();
+      let Products = await (await fetch("https://hackathon-q2-7wlzbdhcp-munizazubairs-projects.vercel.app/api/product2")).json();
       setData2(Products);
     }
     fetchData();

@@ -5,6 +5,7 @@ import image3 from "/public/customer-support.png"
 import icon1 from "/public/Vector.png"
 import icon2 from "/public/bxs_phone.png"
 import icon3 from "/public/bi_clock-fill.png"
+import ContactForm from "@/components/contactForm"
 
 export default function Contact() {
     return(
@@ -43,29 +44,7 @@ export default function Contact() {
             </div>
         </div>
         <div className="lg:w-[635px] lg:h-[923px] h-[800px] md:h-[900px]">
-            <form action="submit" className="flex flex-col lg:gap-[40px] gap-[25px] md:gap-[30px]">
-                <div className="lg:h-[121px] h-[60px] lg:w-[530px] w-[300px]  flex flex-col justify-between items-start">
-                <label htmlFor="name" className="lg:text-[16px] text-[12px] md:text-[14px] text-black font-semibold">Your name</label>
-                    <input type="name" placeholder="Abc" className="text-black lg:h-[75px] h-[40px] md:h-[60px] lg:w-[528px] w-[300px] md:w-[450px] border-[1px] border-color15 rounded-[5px] lg:rounded-[10px] lg:text-[16px] text-[12px] md:text-[14px] lg:pl-[25px] pl-[15px] md:pl-[20px]" />
-                    </div>
-
-                    <div className="lg:h-[121px] h-[75px] lg:w-[530px] w-[300px]   flex flex-col justify-between items-start">
-                    <label htmlFor="gmail" className="lg:text-[16px] text-[12px] md:text-[14px] text-black font-semibold">Email address</label>
-                    <input type="gmail" placeholder="Abc@def.com" className="text-black lg:h-[75px] h-[40px] md:h-[60px] lg:w-[528px] w-[300px]  md:w-[450px] border-[1px] border-color15 rounded-[5px] lg:rounded-[10px] lg:text-[16px] text-[12px] md:text-[14px] lg:pl-[25px] pl-[15px] md:pl-[20px]" />
-                    </div>
-
-                    <div className="lg:h-[121px] h-[75px] lg:w-[530px] w-[300px]  flex flex-col justify-between items-start">
-                    <label htmlFor="subject" className="lg:text-[16px] text-[12px] md:text-[14px] text-black font-semibold">Subject</label>
-                    <input type="subject" placeholder="This is an optional" className="text-black lg:h-[75px] h-[40px] md:h-[60px] lg:w-[528px] w-[300px] md:w-[450px] border-[1px] border-color15 rounded-[5px] lg:rounded-[10px] lg:text-[16px] text-[12px] md:text-[14px] lg:pl-[25px] pl-[15px] md:pl-[20px]" />
-                    </div>
-
-                    <div className="lg:h-[121px] h-[95px] lg:w-[530px] w-[300px]  flex flex-col justify-between items-start">
-                    <label htmlFor="message" className="lg:text-[16px] text-[12px] md:text-[14px] text-black font-semibold">Message</label>
-                    <textarea placeholder="Hi! i’d like to ask about" className="text-black lg:h-[120px] h-[60px] lg:w-[528px] w-[300px]  md:w-[450px] border-[1px] border-color15 rounded-[5px] lg:rounded-[10px] lg:text-[16px]  text-[12px] md:text-[14px] lg:pl-[25px] pl-[15px] md:pl-[20px] lg:pt-[30px] pt-[20px] md:pt-[25px]" ></textarea>
-                    </div>
-                    <button className="lg:h-[55px] h-[35px] md:h-[45px] lg:w-[237px] w-[150px] md:w-[200px] border-[1px] border-color16 lg:rounded-[5px] rounded-[3px] flex justify-center items-center text-white lg:text-[16px] bg-color5">Submit</button>
-            </form>
-
+            <ContactForm />
         </div>
     </div>
                 
